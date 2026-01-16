@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Funcionario } from './fucionario/entities/funcionario.entity';
+import { FuncionarioModule } from './fucionario/funcionario.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -9,10 +11,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'db_funcionario',
-      entities: [],
+      entities: [Funcionario],
       synchronize: true,
 
-    })
+    }),
+    FuncionarioModule
   ],
   controllers: [],
   providers: [],
